@@ -12,9 +12,13 @@ This script is released AS-IS under the New BSD License (http://www.opensource.o
 -Copy update-script.sh to the /etc/cron.daily/ directory on your Gentoo box.
 -Optionally, to avoid having all Gentoo boxes attempt to update at the same time, edit /etc/crontab to reflect when the cron.daily jobs should run.
 
-*Optional SSH/rsync backup:*
+*Modify Backup Retention:*
 ---------------------------
 
+The variable BACK_LNG determines how long you want to keep backups.
+
+*Optional SSH/rsync backup:*
+---------------------------
 
 To enable rsync usage with SSH first create a key, copy it to the remote system.
 {{{
@@ -41,6 +45,11 @@ To decrypt your archived backup, issue the command:
 openssl enc -d -aes-256-cbc -in 2007-07-30.etc.backup.tar.gz.enc -out 2007-07-30.etc.backup.tar.gz
 
 Substituting in the proper filenames and enter your password when prompted.
+
+*Optional Portage Cleanup:*
+---------------------------
+
+You may enable the script to remove old portage files. Note the default value is 90 days but this may be adjusted as needed.
 
 *Caveats:*
 --------
