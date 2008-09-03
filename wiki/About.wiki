@@ -17,13 +17,13 @@ This script is released AS-IS under the New BSD License (http://www.opensource.o
 
 
 To enable rsync usage with SSH first create a key, copy it to the remote system.
-
+{{{
 $ ssh-keygen -t dsa
 $ ssh-copy-id -i ~/.ssh/id_dsa.pub ssh-user@remotehost.com
 $ ssh ssh-user@remotehost.com
 $ mkdir /backups/hostname -f
 $ sudo chown ssh-user /backups/hostname.domain.com/
-
+}}}
 Next you need to modify the variables for the rsync including enabling it, setting remote domain, remote user, key on local system, and if desired directory to exclude from backup.
 
 *Optional Backup Encryption:*
