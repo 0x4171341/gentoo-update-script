@@ -12,6 +12,20 @@ This script is released AS-IS under the New BSD License (http://www.opensource.o
 -Copy update-script.sh to the /etc/cron.daily/ directory on your Gentoo box.
 -Optionally, to avoid having all Gentoo boxes attempt to update at the same time, edit /etc/crontab to reflect when the cron.daily jobs should run.
 
+*Optional SSH/rsync backup:*
+---------------------------
+
+
+To enable rsync usage with SSH first create a key, copy it to the remote system.
+
+$ ssh-keygen -t dsa
+$ ssh-copy-id -i ~/.ssh/id_dsa.pub ssh-user@remotehost.com
+$ ssh ssh-user@remotehost.com
+$ mkdir /backups/hostname -f
+$ sudo chown ssh-user /backups/hostname.domain.com/
+
+Next you need to modify the variables for the rsync including enabling it, setting remote domain, remote user, key on local system, and if desired directory to exclude from backup.
+
 *Optional Backup Encryption:*
 ---------------------------
 
@@ -27,7 +41,7 @@ Substituting in the proper filenames and enter your password when prompted.
 --------
 
 -It appears that alot of automated jobs run on the hour to update Nessus signatures.  Because of this, updates can sometimes fail.  In an attempt to avoid this, the script contains a seventeen (17) minute sleep timer before the Nessus signature updates trigger.  Please feel free to adjust accordingly.
--Backups need incorporate offbox storage to be true backups.  I usually accomplish this via Samba or NSF mounting a /backups directory from another machine.  The primary purpose of the backup job is just to protect me in the event that a file is accidently overwritten (etc-update).
+-Backups need incorporate offbox storage to be true backups.  I usually accomplish this via Samba or NSF mounting a /backups directory from another machine.  The primary purpose of the backup job is just to protect me in the event that a file is accidentally overwritten (etc-update).
 
 *Changelog:*
 ----------
@@ -35,7 +49,6 @@ Visit the readme.txt file for a accurate list of all changes.
 
 *To-Do/ Wishlist:*
 ------
--Add rsync-based backup routines.
 -Check for and use a static configuration file to override program defaults.
 
 
