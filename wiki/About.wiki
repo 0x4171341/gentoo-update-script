@@ -26,6 +26,11 @@ $ sudo chown ssh-user /backups/hostname.domain.com/
 }}}
 Next you need to modify the variables for the rsync including enabling it, setting remote domain, remote user, key on local system, and if desired directory to exclude from backup.
 
+*Optional MySQL Backup:*
+---------------------------
+
+To enable MySQL backup, set the user, password, and host of the MySQL database. Secondly set the MySQL variable to yes. Each database will be backed up separately.
+
 *Optional Backup Encryption:*
 ---------------------------
 
