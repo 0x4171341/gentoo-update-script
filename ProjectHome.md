@@ -1,0 +1,1 @@
+Shell script for Gentoo Linux to preform nightly system administration tasks from a cron job. This is reminiscent of OpenBSD's /etc/daily, weekly, monthly scripts. Includes auto updating for Nikto, Snort sigs, and Nessus plugins. Also includes MySQL dump support, file system backups, and remote backups via SSH/rysnc.
